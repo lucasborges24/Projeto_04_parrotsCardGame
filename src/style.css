@@ -1,0 +1,22 @@
+.none {
+    display: none;
+
+}
+
+img {
+    width: 50px;
+}
+
+.allcards {
+    display: flex;
+    flex-wrap: wrap;
+    margin: 50px 20%;
+}
+.card {
+    width: 117px;
+    height: 146px;
+    background-color: #a7e9af;
+    border: 1px solid #99cea8;
+    border-radius: 5px;
+    margin-left: 20px;
+}
