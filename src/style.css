@@ -1,89 +1,97 @@
+/* general */
+
 * {
     box-sizing: border-box;
 }
 
 body {
+    font-family: 'Roboto', sans-serif;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
     background-color: #eef9bf;
 }
 
-.title {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin: 40px auto 20px;
-}
+/* title */
+
 h1 {
     text-transform: uppercase;
     font-weight: 700;
-    font-size: 56px;
-    line-height: 66px;
+    font-size: 36px;
+    line-height: 42px;
     letter-spacing: -0.004em;
     color: #75B79E;
-    margin: 0 auto;
+    margin-top: 40px;
 }
 
-img {
-    width: 75px;
-}
 
-.allcards {
+/* cards */
+
+.container {
     display: flex;
-    flex-wrap: wrap;
-    margin: 50px 120px;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
 }
 
 .card {
     width: 117px;
     height: 146px;
+    margin-top: 34px;
+    position: relative;
+}
+
+.card img {
+    width: 100px;
+    height: 100px;
+}
+
+.cardface {
+    width: 100%;
+    height: 100%;
     background-color: #a7e9af;
     border: 1px solid #99cea8;
     border-radius: 5px;
-    margin-left: 20px;
-    margin-top: 20px;
+    box-shadow: 1px 1px 1px rgba(0, 0, 0, 0.3);
     display: flex;
     align-items: center;
-    justify-content: center;
+    position: absolute;
+    backface-visibility: hidden;
     transition: all .5s;
-    /* transform-style: preserve-3d; */
+    transform-style: preserve-3d;
 }
 
-.card:active {
+.back {
     transform: rotateY(180deg);
 }
 
-.card:active .backcard {
+.select-card .back {
     transform: rotateY(0deg);
-  } 
-
-.card:active .frontcard {
-    transform: rotateY(-180deg);
-  }
-
-.none {
-    display: none;
-    /* transition: .5s; */
 }
 
-
+.select-card .front {
+    transform: rotateY(-180deg);
+}
 
 /* mobile layout */
-@media (max-width: 614px) {
-    
-    .title {
-        margin-bottom: 0px;
-    }
+@media screen and (min-width: 614px) {
     
     h1 {
-        text-align: center; 
-        font-size: 36px;
-        line-height: 42px;
+        font-size: 56px;
+        line-height: 66px;
     }
 
-    .allcards {
-        flex-direction: column;
-        flex-wrap: inherit;
+    .container {
+        flex-direction: row;
+        flex-wrap: wrap;
         align-items: center;
-        justify-content: center;
-        margin: inherit;
+        justify-content: space-around;
+        max-width: 800px;
+        width: 100%;
+    }
+
+    .card {
+        margin: 17px;
     }
 }
